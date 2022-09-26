@@ -1,3 +1,4 @@
+<meta charset="utf-8">
 # Library
 pdb1MK1.sql - tables and triggers<br>
 pdb1MK2.sql - RENTAL package specs<br>
