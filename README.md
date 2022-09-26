@@ -19,7 +19,7 @@ Ad 2. zwrócić też location_id<br>
 [DONE] LOCATIONS usunąć checki lokalizacji<br>
 [DONE] Wielkość liter przy wyszukiwaniu autora i tytułu<br>
 [DONE] Porównywanie nulli<br>
-obsługa wyjątków, własme treści komunikatów https://docs.oracle.com/cd/B10501_01/appdev.920/a96624/07_errs.htm<br>
+obsługa wyjątków, własne treści komunikatów https://docs.oracle.com/cd/B10501_01/appdev.920/a96624/07_errs.htm<br>
 AUTHORS_TITLES_RELATION insert into ... where not exists<br>
 [DONE] Funkcje przeciążone<br>
 =======================================================================<br>
@@ -31,3 +31,4 @@ Indeksy funkcyjne<br>
 Rozwiązać problem blokady lokalizacji na poziomie całości zasobu<br>
 Blokady: SX, TX<br>
 https://jeffkemponoracle.com/2005/10/user-named-locks-with-dbms_lock/<br>
+https://www.oreilly.com/library/view/oracle-built-in-packages/1565923758/ch04.html<BR>
