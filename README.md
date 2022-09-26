@@ -23,8 +23,9 @@ AUTHORS_TITLES_RELATION insert into ... where not exists<br>
 [DONE] Funkcje przeciążone<br>
 =======================================================================<br>
 [DONE] Na jednej tabeli trigger z exception;<br>
-nvl()<br>
-Sprawdzenie poprawności danych wejściowych<br>
+[DONE] nvl()<br>
+[DONE] Sprawdzenie poprawności danych wejściowych<br>
+Data zawsze z okresleniem formatu
 Indeksy funkcyjne<br>
 Rozwiązać problem blokady lokalizacji na poziomie całości zasobu<br>
 Blokady: SX, TX<br>
