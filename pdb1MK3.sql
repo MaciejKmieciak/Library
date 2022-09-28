@@ -498,6 +498,43 @@ CREATE OR REPLACE PACKAGE BODY RENTAL AS
         
         RETURN TO_RETURN;
     END;
+    
+    -- ==================================================================
+    FUNCTION GET_LOCATION_LOCKHANDLE RETURN VARCHAR2 IS
+    BEGIN
+        IF LOCATION_LOCKHANDLE IS NULL THEN
+            DBMS_LOCK.ALLOCATE_UNIQUE(
+                LOCKNAME => LOCATION_LOCKNAME,
+                LOCKHANDLE => LOCATION_LOCKHANDLE);
+        END IF;
+        
+        RETURN LOCATION_LOCKHANDLE;
+    END GET_LOCATION_LOCKHANDLE;
+    
+    -- ==================================================================
+    FUNCTION LOCK_LOCATION RETURN INTEGER IS
+        TEMP_LOCKHANDLE LOCATION_LOCKHANDLE%TYPE := GET_LOCATION_LOCKHANDLE;
+        RETURN_CODE INTEGER;
+    BEGIN
+        RETURN_CODE := DBMS_LOCK.REQUEST(
+                        LOCKHANDLE => TEMP_LOCKHANDLE,
+                        LOCKMODE => DBMS_LOCK.X_MODE,
+                        TIMEOUT => 60,
+                        RELEASE_ON_COMMIT => TRUE);
+                        
+        RETURN RETURN_CODE;
+    END LOCK_LOCATION;
+    
+    -- ==================================================================
+    FUNCTION RELEASE_LOCATION RETURN INTEGER IS
+        TEMP_LOCKHANDLE LOCATION_LOCKHANDLE%TYPE := GET_LOCATION_LOCKHANDLE;
+        RETURN_CODE INTEGER;
+    BEGIN
+        RETURN_CODE := DBMS_LOCK.RELEASE(
+                        LOCKHANDLE => TEMP_LOCKHANDLE);
+                        
+        RETURN RETURN_CODE;
+    END RELEASE_LOCATION;
         
 END RENTAL;
 /
