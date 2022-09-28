@@ -1,11 +1,11 @@
 <meta charset="utf-8">
-# Library
+# Library<br>
 pdb1MK1.sql - tables and triggers<br>
 pdb1MK2.sql - RENTAL package specs<br>
 pdb1MK3.sql - RENTAL package body<br>
-pdb1MK4.sql - tests<br>
+pdb1MK4.sql - tests<br><br>
 
-Lista zmian:
+Lista zmian:<br>
 [ZROBIONE] nvl()<br>
 [ZROBIONE] Sprawdzenie poprawnosci danych wejsciowych w funkcjach<br>
 Probowalem uzyc dbms_lock (funkcje GET_LOCATION_LOCKHANDLE, LOCK_LOCATION, RELEASE_LOCATION)<br>
