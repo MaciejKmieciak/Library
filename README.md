@@ -12,3 +12,6 @@ Probowalem uzyc dbms_lock (funkcje GET_LOCATION_LOCKHANDLE, LOCK_LOCATION, RELEA
 ale nie rozumiem, czy blokuja one cala baze czy jak to dziala, <br>
 bo nie widze sposobu, zeby zablokowac w ten sposob konkretne rekordy.<br>
 https://www.oreilly.com/library/view/oracle-built-in-packages/1565923758/ch04.html<BR>
+
+1. TRiggery przerobić
+2. Exception przerobić
