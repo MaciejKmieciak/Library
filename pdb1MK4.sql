@@ -75,7 +75,7 @@ SELECT * FROM TITLES;
 SET SERVEROUTPUT ON;
 
 DECLARE
-    BOOKS_AMOUNT NUMBER := 28;
+    BOOKS_AMOUNT NUMBER := 19;
     SINGLE_LOCATION_SPOTS RENTAL.LOCATION_SPOTS := RENTAL.LOCATION_SPOTS();
     RETURNED_DICTIONARY RENTAL.LOCATIONS_DICTIONARY := RENTAL.LOCATIONS_DICTIONARY();
     RETURNED_BOOK_IDS RENTAL.ID_ARRAY;
@@ -164,4 +164,40 @@ SELECT AUTHOR_ID FROM AUTHORS WHERE
 select count(*) from dba_objects;
 select * from V$LOCK;
 select * from V$SESSION;
+commit;
+
+select * from dba_triggers where table_name='LOCATIONS';
+
+insert into locations (corridor, rack, shelf) values (99, 99, 99);
+insert into locations (corridor, rack, shelf, who_added) values (93, 99, 99, 'xy');
+select * from locations where location_id=1202;
+select * from locations order by location_id desc;
+update locations set who_last_mod = 'xy' where location_id = 1202;
+update locations set rack = 92 where location_id = 1212;
+update locations set who_last_mod = 'xy' where location_id = 1212;
+
+declare
+    returned number;
+begin
+    returned := rental.pick_title(1, null, null, null, null);
+end;
+/
+
+declare
+return_code integer;
+temp_LOCKHANDLE varchar2(128);
+begin
+            DBMS_LOCK.ALLOCATE_UNIQUE(
+            LOCKNAME => 'blablabla',
+            LOCKHANDLE => temp_LOCKHANDLE);
+        RETURN_CODE := DBMS_LOCK.REQUEST(
+                        LOCKHANDLE => temp_LOCKHANDLE,
+                        LOCKMODE => DBMS_LOCK.X_MODE,
+                        TIMEOUT => 60,
+                        RELEASE_ON_COMMIT => TRUE);
+                        dbms_output.put_line(temp_LOCKHANDLE);
+                    dbms_output.put_line(return_code);
+end;
+/
+rollback;
 commit;
