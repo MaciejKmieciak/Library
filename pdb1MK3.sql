@@ -513,6 +513,17 @@ CREATE OR REPLACE PACKAGE BODY RENTAL AS
     END GET_LOCATION_LOCKHANDLE;
     
     -- ==================================================================
+    PROCEDURE LOCK_LOCATION (T_LOCATION_ID NUMBER) 
+    IS
+        TEMP_NUM NUMBER;
+    BEGIN
+        SELECT 1 INTO TEMP_NUM FROM LOCATIONS
+        WHERE LOCATION_ID = T_LOCATION_ID
+        FOR UPDATE NOWAIT;
+    END LOCK_LOCATION;
+    
+    -- ==================================================================
+    /*
     FUNCTION LOCK_LOCATION RETURN INTEGER IS
         TEMP_LOCKHANDLE LOCATION_LOCKHANDLE%TYPE := GET_LOCATION_LOCKHANDLE;
         RETURN_CODE INTEGER;
@@ -524,9 +535,10 @@ CREATE OR REPLACE PACKAGE BODY RENTAL AS
                         RELEASE_ON_COMMIT => TRUE);
                         
         RETURN RETURN_CODE;
-    END LOCK_LOCATION;
+    END LOCK_LOCATION; */
     
     -- ==================================================================
+    /*
     FUNCTION RELEASE_LOCATION RETURN INTEGER IS
         TEMP_LOCKHANDLE LOCATION_LOCKHANDLE%TYPE := GET_LOCATION_LOCKHANDLE;
         RETURN_CODE INTEGER;
@@ -535,7 +547,7 @@ CREATE OR REPLACE PACKAGE BODY RENTAL AS
                         LOCKHANDLE => TEMP_LOCKHANDLE);
                         
         RETURN RETURN_CODE;
-    END RELEASE_LOCATION;
+    END RELEASE_LOCATION; */
         
 END RENTAL;
 /

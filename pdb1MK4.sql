@@ -201,3 +201,10 @@ end;
 /
 rollback;
 commit;
+
+update mk.locations set empty_spots_left = 8 where location_id = 11;
+
+BEGIN
+    RENTAL.LOCK_LOCATION(11);
+END;
+/
