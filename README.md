@@ -6,6 +6,10 @@ pdb1MK3.sql - RENTAL package body<br>
 pdb1MK4.sql - tests<br>
 <br>
 
+12.10.2022:<br>
+Dodano funkcje LOCK_LOCATION, RELEASE_LOCK_LOCATION oraz DELIVERY
+<br>
+
 29.09.2022:<br>
 [ZROBIONE] nvl()<br>
 [ZROBIONE] Sprawdzenie poprawnosci danych wejsciowych w funkcjach<br>
