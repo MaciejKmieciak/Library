@@ -8,6 +8,7 @@ pdb1MK4.sql - tests<br>
 
 12.10.2022:<br>
 Dodano funkcje LOCK_LOCATION, RELEASE_LOCK_LOCATION oraz DELIVERY
+Test dzialania jest w pdb1MK4.sql
 <br>
 
 29.09.2022:<br>
