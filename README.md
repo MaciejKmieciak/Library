@@ -6,6 +6,10 @@ pdb1MK3.sql - RENTAL package body<br>
 pdb1MK4.sql - tests<br>
 <br>
 
+1. Lock dla kazdej lokalizcji przed okresleniem ilosci wolnych miejsc
+2. Obsluga bledow, savepoint, rollback to savepoint
+3. Testy wszystkiego
+
 12.10.2022:<br>
 Dodano funkcje LOCK_LOCATION, RELEASE_LOCK_LOCATION oraz DELIVERY<br>
 Test dzialania jest w pdb1MK4.sql<br>
