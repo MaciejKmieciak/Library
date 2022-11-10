@@ -1,3 +1,6 @@
+SELECT * FROM USER_CONSTRAINTS WHERE TABLE_NAME = 'DELIVERIES';
+SELECT * FROM ALL_CONS_COLUMNS WHERE OWNER = 'MK' AND CONSTRAINT_NAME NOT LIKE 'SYS%' AND CONSTRAINT_NAME NOT LIKE 'BIN%' AND CONSTRAINT_NAME NOT LIKE 'MD%' AND TABLE_NAME = 'TITLES';
+
 DECLARE
     LOCAL_TITLE RENTAL.TITLE_RECORD;
     DESCRIPTION_VARCHAR VARCHAR2(4000) := 'Amers is a collection of poetry 
@@ -35,7 +38,7 @@ DECLARE
     T_AUTHORS RENTAL.AUTHORS := RENTAL.AUTHORS();
     T_AUTHOR RENTAL.AUTHOR_RECORD;
     T_TITLE RENTAL.TITLE_RECORD;
-    T_AMOUNT NUMBER := 23;
+    T_AMOUNT NUMBER := 111;
     T_ADDED_BOOKS_VALUE NUMBER := 10.5;
     T_ADDED_BOOKS_CONDITION NUMBER := 4;
     T_ADDED_BOOKS_BUY_DATE DATE := NULL;
@@ -92,8 +95,10 @@ SELECT * FROM AUTHORS;
 SELECT * FROM TITLES;
 DELETE FROM TITLES WHERE TITLE IN ('Tytul testowy2', 'Tytul testowy');
 SELECT * FROM BOOKS;
+select * from deliveries;
 SELECT COUNT(BOOK_ID) FROM BOOKS;
 SELECT * FROM LOCATIONS ORDER BY CORRIDOR, RACK, SHELF;
+select distinct empty_spots_left from locations;
 TRUNCATE TABLE BOOKS;
 BEGIN
     RENTAL.INITIATE_LOCATIONS;
@@ -129,3 +134,8 @@ END;
 /
 
 SELECT * FROM ADDRESSES;
+
+select books.location_id AS Lokalizacja, count(books.location_id) AS IleKsiazek
+from books inner join deliveries on books.delivery_id = deliveries.delivery_id
+where deliveries.delivery_id = :bind_deli_id
+group by books.location_id;

@@ -6,6 +6,13 @@ pdb1MK3.sql - RENTAL package body<br>
 pdb1MK4.sql - tests<br>
 <br>
 
+10.11.2022
+Raport z tytulem itd.
+https://docs.oracle.com/cd/B19306_01/server.102/b14357/ch6.htm
+
+Tabele zapisujace informacje o dostawach i rozmieszczeniach
+Raport o rozmieszczeniu po lokalizacjach wg id lub daty
+
 02.11.2022:<br>
 Poprawna obsluga wyjatkow w procedurze DELIVERY (pdb1MK3.sql linie 81 - 98)<br>
 Dodanie tabel ADDRESSES, READERS, ADDRESSES_READERS, BORROWS, H_BORROWS (pdb1MK1.sql od linii 233)<br>
